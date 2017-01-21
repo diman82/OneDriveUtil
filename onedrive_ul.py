@@ -49,7 +49,7 @@ def placeFiles(client, path_to_ul):
             rel_path_to_ul = os.path.relpath(localpath, PATH_TO_LOCAL_UL).replace('\\', '/')    # change the path to *nix platform style
             print("Relative path", rel_path)
             print('Uploading item/s.. ', path_to_ul)
-            client.item(drive="me", path=PATH_TO_REMOTE_UL+rel_path_to_ul.replace('\\', '/')).upload_async(localpath.replace('\\', '/'))
+            client.item(drive="me", path=(PATH_TO_REMOTE_UL+rel_path_to_ul).replace('\\', '/')).upload_async(localpath.replace('\\', '/'))
             # client.item(drive="me", id=current_folder_id).children[rel_path].upload_async(localpath.replace('\\', '/'))
         elif os.path.isdir(localpath):
             print("MKD", name)
